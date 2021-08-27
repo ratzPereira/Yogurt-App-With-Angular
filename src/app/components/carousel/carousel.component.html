@@ -1,0 +1,12 @@
+<div class="container" >
+<ngb-carousel *ngIf="images">
+  <ng-container *ngFor="let image of images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper d-flex justify-content-center">
+        <img class="w-100 slide-img" [src]="image" [alt]="getImageName(image)" />
+      </div>
+    </ng-template>
+  </ng-container>
+</ngb-carousel>
+</div>
+

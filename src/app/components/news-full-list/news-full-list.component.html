@@ -1,0 +1,29 @@
+<ygr-jumbotron></ygr-jumbotron>
+
+<div class="row">
+<div class="col-9">
+  <div class="row row-cols-3">
+    <ng-container *ngFor="let post of posts">
+      <div class="col">
+        <div class="col card news-card">
+            <a class="news-link" routerLink="{{post.id}}">
+          <img
+            [src]="post.imgPath"
+            alt=""
+            class="img-responsive news-img w-100 card-img-top"
+          />
+
+          <div class="card-body">
+            <h4 class="card-text snippet-title">{{ post.title }}</h4>
+            <p
+              class="card-text snippet-content"
+              [innerHTML]="getContentSnapshot(post.content)"
+            ></p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+</div>

@@ -1,0 +1,21 @@
+.news-title {
+    margin-top: 130px ;
+    margin-bottom: 15px;
+}
+
+.news-btn {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(31, 30, 30);
+}
+
+.news-img {
+    object-fit: cover;
+    max-height: 250px;
+    height: 250px;
+}
+
+.snippet-title, .snippet-content{
+    padding: 10px;
+}

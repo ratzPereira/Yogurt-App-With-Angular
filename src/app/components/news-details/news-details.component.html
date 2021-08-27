@@ -1,0 +1,13 @@
+<ygr-jumbotron></ygr-jumbotron>
+<div class="container card w-100 p-4 my-4">
+    <hr>
+  <ng-container *ngFor="let field of post">
+      <div class="">
+          <a class="btn btn-outline-primary mb-4 float-left news-details-btn" routerLink="/news">Back to the list</a>
+      </div>
+    
+    <img [src]="field.imgPath" />
+    <h1>{{ field.title }}</h1>
+    <p [innerHTML]="field.content"></p>
+  </ng-container>
+</div>
