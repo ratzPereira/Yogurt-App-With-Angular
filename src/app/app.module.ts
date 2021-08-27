@@ -18,6 +18,10 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ContactFormService } from './services/contact-form.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BeefComponent } from './components/beef/beef.component';
+import { ChickenComponent } from './components/chicken/chicken.component';
+import { PorkComponent } from './components/pork/pork.component';
+import { FlavoursService } from './services/flavours.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewsFullListComponent,
     NewsDetailsComponent,
     BrandComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    BeefComponent,
+    ChickenComponent,
+    PorkComponent
   ],
   imports: [
     FormsModule,
@@ -40,7 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     HttpClientModule,
   ],
-  providers: [CarouselService,PostsService, ContactFormService],
+  providers: [CarouselService,PostsService, ContactFormService, FlavoursService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

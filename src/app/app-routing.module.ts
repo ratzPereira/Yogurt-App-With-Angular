@@ -5,6 +5,9 @@ import { NewsFullListComponent } from './components/news-full-list/news-full-lis
 import { NewsDetailsComponent } from './components/news-details/news-details.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { BeefComponent } from './components/beef/beef.component';
+import { PorkComponent } from './components/pork/pork.component';
+import { ChickenComponent } from './components/chicken/chicken.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -12,6 +15,9 @@ const routes: Routes = [
   { path: 'news', component: NewsFullListComponent },
   { path: 'brand', component: BrandComponent },
   { path: 'contacts', component: ContactFormComponent},
+  { path: 'flavour/:id', component: BeefComponent},
+  { path: 'pork', component: PorkComponent},
+  { path: 'chicken', component: ChickenComponent},
 ];
 
 @NgModule({
