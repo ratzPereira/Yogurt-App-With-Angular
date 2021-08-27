@@ -8,12 +8,13 @@ import { Slideshow } from './models/slideshow';
 })
 export class CarouselService  {
 
-  private ROOT = 'http://localhost:3000/api'
+  private _ROOT = 'http://localhost:3000/api'
+
 
   constructor(private _http: HttpClient) { }
 
  
   public getCarouselImages(): Observable<Slideshow> {
-    return this._http.get<Slideshow>(this.ROOT + '/slideshow')
+    return this._http.get<Slideshow>(this._ROOT + '/slideshow')
   }
 }

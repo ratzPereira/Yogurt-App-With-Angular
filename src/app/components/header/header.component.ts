@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlavoursService } from '../../services/flavours.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Flavours } from '../../services/models/yogurt';
 
 @Component({
   selector: 'ygr-header',
@@ -8,11 +10,24 @@ import { FlavoursService } from '../../services/flavours.service';
 })
 export class HeaderComponent implements OnInit {
 
-  flavourList:any
+  flavourList:Flavours=[]
+  id:any
 
-  constructor(private _flavoursService: FlavoursService) { }
+  constructor(private _flavoursService: FlavoursService, private _route: ActivatedRoute) {}
 
   ngOnInit(): void {
+
+   this._route.params.subscribe(params => {
+      this.id = params
+    });
+
+    this.id = this._route.snapshot.paramMap.get('id');
+    console.log(this.id);
+
+    this._route.params.subscribe(routeParams => {
+      this.id = routeParams.name;
+      })
+
     this.getFlavoursList()
   }
 
@@ -22,5 +37,4 @@ export class HeaderComponent implements OnInit {
       console.log(this.flavourList)
     })
   }
-
 }

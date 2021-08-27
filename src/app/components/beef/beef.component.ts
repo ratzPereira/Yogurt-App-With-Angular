@@ -1,33 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FlavoursService } from '../../services/flavours.service';
-import { ActivatedRoute } from '@angular/router';
+import {
+  ActivatedRoute,
+  ActivationEnd,
+  NavigationEnd,
+  Router,
+} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ygr-beef',
   templateUrl: './beef.component.html',
-  styleUrls: ['./beef.component.scss']
+  styleUrls: ['./beef.component.scss'],
 })
-export class BeefComponent implements OnInit {
+export class BeefComponent implements OnInit, OnDestroy {
+  flavourData: any = [];
+  id: any;
 
-  private flavor = "beef"
+  subscription: Subscription;
 
-  flavourData: any = []
-id:any;
-  constructor(private _flavourService: FlavoursService, private route: ActivatedRoute) {
-
-    this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id)
-   }
+  constructor(
+    private _flavourService: FlavoursService,
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) {
+    this.subscription = this.getFlavour();
+  }
 
   ngOnInit(): void {
-    this.getFlavour()
+    this.id = this._route.snapshot.paramMap.get('id');
+    console.log(this.id);
+    this.getFlavour();
+
+    this._router.events.subscribe((event) => {
+      if (event instanceof ActivationEnd) {
+     //   this.getFlavour();
+       // console.log(this.id + " inside")
+      }
+    });
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   getFlavour() {
-    this._flavourService.getFlavour(this.flavor).subscribe((response: any)=> {
-      this.flavourData = response.data
-      console.log(this.flavourData)
-    })
+    return this._flavourService
+      .getFlavour(this.id)
+      .subscribe((response: any) => {
+        this.flavourData = response.data;
+        console.log(this.flavourData);
+      });
   }
-
 }

@@ -1,15 +1,17 @@
 <div class="container">
   <ygr-jumbotron></ygr-jumbotron>
   <hr class="mb-4" />
-  <ng-container *ngFor="let flavour of flavourData">
-
- 
-  <div class="container card w-100 p-4 my-4">
-    <div class="w-100">
-        <img [src]="flavour.imgPath" alt="flavour image">
+  <ng-container  *ngFor="let flavour of flavourData">
+    <div class="container card w-100 p-4 my-4">
+      <div class="w-100">
+        <img
+          [src]="flavour.imgPath"
+          alt="flavour image"
+          class="slide-img w-100"
+        />
+      </div>
+      <h2>{{ flavour.flavour }}</h2>
+      <p [innerHTML]="flavour.content"></p>
     </div>
-  </div> 
-
-
-</ng-container>
+  </ng-container>
 </div>

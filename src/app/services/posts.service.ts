@@ -12,19 +12,19 @@ export class PostsService {
 
   constructor(private _http: HttpClient) { }
 
-  postsUrl = "http://localhost:3000/api/posts"
-  someQuantityPostsUrl = "http://localhost:3000/api/posts?size="
-  postByIdLink = "http://localhost:3000/api/posts/"
+  private _postsUrl = "http://localhost:3000/api/posts"
+  private _someQuantityPostsUrl = "http://localhost:3000/api/posts?size="
+  private _postByIdLink = "http://localhost:3000/api/posts/"
 
   getPosts():Observable<News>{
-    return this._http.get<News>(this.postsUrl)
+    return this._http.get<News>(this._postsUrl)
   }
 
   getSomePosts(quantity: number):Observable<News> {
-    return this._http.get<News>(this.someQuantityPostsUrl + quantity)
+    return this._http.get<News>(this._someQuantityPostsUrl + quantity)
   }
 
   getPostById(id: string):Observable<News>{
-    return this._http.get<News>(this.postByIdLink + id)
+    return this._http.get<News>(this._postByIdLink + id)
   }
 }

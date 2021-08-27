@@ -19,9 +19,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { ContactFormService } from './services/contact-form.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BeefComponent } from './components/beef/beef.component';
-import { ChickenComponent } from './components/chicken/chicken.component';
-import { PorkComponent } from './components/pork/pork.component';
 import { FlavoursService } from './services/flavours.service';
+import { MiniGameComponent } from './components/mini-game/mini-game.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { FlavoursService } from './services/flavours.service';
     BrandComponent,
     ContactFormComponent,
     BeefComponent,
-    ChickenComponent,
-    PorkComponent
+    MiniGameComponent
   ],
   imports: [
     FormsModule,
